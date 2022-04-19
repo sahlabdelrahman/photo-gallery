@@ -1,0 +1,13 @@
+.content-wrapper {
+  margin-bottom: 40px;
+}
+.content-wrapper .info {
+  text-align: center;
+}
+.content-wrapper .info h3 {
+  font-size: 36px;
+  text-transform: capitalize;
+}
+.content-wrapper .info p {
+  font-size: 18px;
+}
