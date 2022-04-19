@@ -6,7 +6,7 @@ import GridItem from "./GridItem/GridItem";
 
 import "../../css/Grid/Grid.css";
 
-const Grid = () => {
+const Grid = ({ setSelectedImg }) => {
   const { data, error, loading } = useFetch(
     "https://scaleflex.cloudimg.io/v7/0.fe_task_static/pictures.json?vh=7a646d&func=proxy"
   );
@@ -19,7 +19,11 @@ const Grid = () => {
         {data && (
           <div className="grid">
             {data.map((image) => (
-              <GridItem key={image.uuid} image={image} />
+              <GridItem
+                key={image.uuid}
+                image={image}
+                setSelectedImg={setSelectedImg}
+              />
             ))}
           </div>
         )}
