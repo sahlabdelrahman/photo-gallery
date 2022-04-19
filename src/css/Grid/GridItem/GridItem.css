@@ -1,5 +1,29 @@
-.gridItem-wrapper img {
+.gridItem-wrapper {
+  cursor: pointer;
+  position: relative;
+}
+.gridItem-wrapper .zoom-icon {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all ease-in-out 0.7s;
+  z-index: 2;
+}
+.gridItem-wrapper .zoom-icon img {
+  width: 48px;
+  height: 48px;
+}
+.gridItem-wrapper span img {
   max-height: 240px;
   min-height: 240px;
   width: 100%;
+  transition: all ease-in-out 0.7s;
+}
+.gridItem-wrapper:hover span img {
+  opacity: 0.8 !important;
+}
+.gridItem-wrapper:hover .zoom-icon {
+  opacity: 1;
 }
