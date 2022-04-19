@@ -3,11 +3,11 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "../../../css/Grid/GridItem/GridItem.css";
 
-const GridItem = ({ image }) => {
+const GridItem = ({ image, setSelectedImg }) => {
   const { name, url } = image;
 
   const handleClicked = () => {
-    console.log("test");
+    setSelectedImg(url);
   };
 
   return (
