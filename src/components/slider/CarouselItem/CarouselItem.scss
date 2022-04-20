@@ -1,15 +1,28 @@
 .carousel-item {
     display: inline-flex;
-    align-items: center;
     justify-content: center;
-
+    align-items: center;
+    // margin: 60px auto;
+    height: 100%;
     color: #fff;
+    position: relative;
 
-    img {
-        // max-width: 60%;
+    .image-container {
+        position: absolute;
         display: block;
         box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
-        border: 3px solid white;
+        // border: 3px solid white;
+        overflow: hidden;
+       
+        @media (max-width: 767px) {
+            max-width: 85%;
+        }
+
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;  
     }
 
 }

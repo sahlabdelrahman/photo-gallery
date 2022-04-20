@@ -1,31 +1,23 @@
-import { useDispatch } from "react-redux";
-import { removeSelectedImage } from "../../store/actions/actions";
-
 import { motion } from "framer-motion";
 
 import "../../css/Modal/Modal.css";
 
+import CloseIcon from "../slider/CloseIcon/CloseIcon";
 import Arrows from "../slider/Arrows/Arrows";
 import Carousel from "../slider/Carousel";
+import Counter from "../slider/Counter/Counter";
 
 const Modal = () => {
-  const dispatch = useDispatch();
-
-  const handleClick = (e) => {
-    if (e.target.classList.contains("backdrop")) {
-      dispatch(removeSelectedImage());
-    }
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="backdrop"
-      onClick={handleClick}
     >
+      <CloseIcon />
       <Arrows />
       <Carousel />
+      <Counter />
     </motion.div>
   );
 };

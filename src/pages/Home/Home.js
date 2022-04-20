@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchImages } from "../../store/actions/actions";
 
@@ -12,6 +13,14 @@ const Home = () => {
   const dispatch = useDispatch();
 
   dispatch(fetchImages());
+
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "initial";
+    }
+  }, [selectedImage]);
 
   return (
     <div>

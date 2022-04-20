@@ -1,7 +1,9 @@
 .carousel {
   overflow: hidden;
+  height: 100vh;
 }
 .carousel .inner {
   white-space: nowrap;
   transition: transform 0.5s;
+  height: 100%;
 }

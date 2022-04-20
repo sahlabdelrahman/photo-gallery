@@ -12,6 +12,7 @@ const imagesReducer = (
     error: null,
     selectedImage: null,
     activeImage: 0,
+    totalImages: 0,
   },
   action
 ) => {
@@ -22,6 +23,7 @@ const imagesReducer = (
         images: action.payload.data,
         loading: action.payload.loading,
         error: action.payload.error,
+        totalImages: action.payload.data?.length,
       };
     case SELECT_IMAGE:
       return {
