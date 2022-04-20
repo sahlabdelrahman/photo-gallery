@@ -2,6 +2,7 @@ import {
   FETCH_IMAGES,
   REMOVE_SELECTED_IMAGE,
   SELECT_IMAGE,
+  UPDATE_ACTIVE_IMAGE,
 } from "../actions/types";
 
 const imagesReducer = (
@@ -10,6 +11,7 @@ const imagesReducer = (
     loading: false,
     error: null,
     selectedImage: null,
+    activeImage: 0,
   },
   action
 ) => {
@@ -25,6 +27,13 @@ const imagesReducer = (
       return {
         ...state,
         selectedImage: action.payload.image,
+        activeImage: action.payload.index,
+      };
+
+    case UPDATE_ACTIVE_IMAGE:
+      return {
+        ...state,
+        activeImage: action.payload.activeImage,
       };
     case REMOVE_SELECTED_IMAGE:
       return {

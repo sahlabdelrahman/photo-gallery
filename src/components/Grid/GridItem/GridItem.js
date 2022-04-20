@@ -6,13 +6,13 @@ import { selectImage } from "../../../store/actions/actions";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "../../../css/Grid/GridItem/GridItem.css";
 
-const GridItem = ({ image }) => {
+const GridItem = ({ image, index }) => {
   const dispatch = useDispatch();
 
   const { name, url } = image;
 
   const handleClicked = () => {
-    dispatch(selectImage(image));
+    dispatch(selectImage(image, index));
   };
 
   return (

@@ -16,8 +16,8 @@ const Grid = () => {
         {error && <ErrorComponent error={error} />}
         {images && (
           <div className="grid">
-            {images.map((image) => (
-              <GridItem key={image.uuid} image={image} />
+            {images.map((image, index) => (
+              <GridItem key={image.uuid} image={image} index={index} />
             ))}
           </div>
         )}

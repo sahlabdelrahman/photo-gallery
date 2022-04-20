@@ -5,7 +5,10 @@ import { motion } from "framer-motion";
 
 import "../../css/Modal/Modal.css";
 
-const Modal = ({ selectedImage }) => {
+import Arrows from "../slider/Arrows/Arrows";
+import Carousel from "../slider/Carousel";
+
+const Modal = () => {
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
@@ -21,12 +24,8 @@ const Modal = ({ selectedImage }) => {
       className="backdrop"
       onClick={handleClick}
     >
-      <motion.img
-        initial={{ y: "-100%" }}
-        animate={{ y: 0 }}
-        src={selectedImage.url}
-        alt="enlarged pic"
-      />
+      <Arrows />
+      <Carousel />
     </motion.div>
   );
 };
