@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchImages } from "../../store/actions/actions";
 
 import Header from "../../components/Header/Header";
 import Content from "../../components/Content/Content";
@@ -6,18 +7,20 @@ import Grid from "../../components/Grid/Grid";
 import Modal from "../../components/Modal/Modal";
 
 const Home = () => {
-  const [selectedImg, setSelectedImg] = useState(null);
+  const selectedImage = useSelector((state) => state.images.selectedImage);
+
+  const dispatch = useDispatch();
+
+  dispatch(fetchImages());
 
   return (
     <div>
       <Header />
       <Content />
       <main>
-        <Grid setSelectedImg={setSelectedImg} />
+        <Grid />
       </main>
-      {selectedImg && (
-        <Modal selectedImg={selectedImg} setSelectedImg={setSelectedImg} />
-      )}
+      {selectedImage && <Modal selectedImage={selectedImage} />}
     </div>
   );
 };
