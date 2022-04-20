@@ -1,13 +1,18 @@
+import { useDispatch } from "react-redux";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+
+import { selectImage } from "../../../store/actions/actions";
 
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "../../../css/Grid/GridItem/GridItem.css";
 
-const GridItem = ({ image, setSelectedImg }) => {
+const GridItem = ({ image }) => {
+  const dispatch = useDispatch();
+
   const { name, url } = image;
 
   const handleClicked = () => {
-    setSelectedImg(url);
+    dispatch(selectImage(image));
   };
 
   return (

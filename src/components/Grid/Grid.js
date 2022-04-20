@@ -1,4 +1,4 @@
-import { useFetch } from "../../hooks/useFetch";
+import { useSelector } from "react-redux";
 
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import ErrorComponent from "../Error/ErrorComponent";
@@ -6,24 +6,18 @@ import GridItem from "./GridItem/GridItem";
 
 import "../../css/Grid/Grid.css";
 
-const Grid = ({ setSelectedImg }) => {
-  const { data, error, loading } = useFetch(
-    "https://scaleflex.cloudimg.io/v7/0.fe_task_static/pictures.json?vh=7a646d&func=proxy"
-  );
+const Grid = () => {
+  const { images, loading, error } = useSelector((state) => state.images);
 
   return (
     <section className="grid-wrapper">
       <div className="container">
         {loading && <LoadingSpinner />}
         {error && <ErrorComponent error={error} />}
-        {data && (
+        {images && (
           <div className="grid">
-            {data.map((image) => (
-              <GridItem
-                key={image.uuid}
-                image={image}
-                setSelectedImg={setSelectedImg}
-              />
+            {images.map((image) => (
+              <GridItem key={image.uuid} image={image} />
             ))}
           </div>
         )}
@@ -33,16 +27,3 @@ const Grid = ({ setSelectedImg }) => {
 };
 
 export default Grid;
-
-/* 
-  {images.length <= 0 ? (
-          <LoadingSpinner />
-        ) : (
-          <div className="grid">
-            { {images.map((image) => (
-              <GridItem key={image.uuid} image={image} />
-            ))} }
-          </div>
-        )}
-
-*/
